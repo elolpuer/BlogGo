@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Posts</title>
+</head>
+<body>
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Index</a>
+    </li>
+{{/*    <li class="nav-item">*/}}
+{{/*        <a class="nav-link" href="/add">Add</a>*/}}
+{{/*    </li>*/}}
+    <li class="nav-item">
+        <a class="nav-link" href="/posts">Posts</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">User</a>
+    </li>
+</ul>
+    <h1>Add</h1>
+    <form method="post" action="/add/process">
+        <input type="text" name="body" placeholder="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" required>
+        <button type="submit" class="btn btn-dark">Add</button>
+    </form>
+    {{range .}}
+    <form action="/delete?id={{.ID}}" method="POST" name="id">
+{{/*        <p>*/}}
+{{/*            {{.Author}}*/}}
+{{/*        </p>*/}}
+        </br>
+        <p>
+            {{.Body}}
+        </p>
+        <p>
+            {{.Date}}
+        </p>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+{{end}}
+</body>
+</html>
