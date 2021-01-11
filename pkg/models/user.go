@@ -10,5 +10,4 @@ type User struct {
 type SessionUser struct {
 	ID int
 	Username string
-	Email string
 }

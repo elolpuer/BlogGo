@@ -13,13 +13,21 @@
 {{/*    <li class="nav-item">*/}}
 {{/*        <a class="nav-link" href="/add">Add</a>*/}}
 {{/*    </li>*/}}
+    {{if .User}}
     <li class="nav-item">
         <a class="nav-link" href="/posts">Posts</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/signup">User</a>
-    </li>
-</ul>
-    <h1>{{.Index}}</h1>
+        <form method="post" action="/logout">
+            <button type="submit" class="btn btn-dark">Logout</button>
+        </form>
+        </ul>
+        <h1>{{.H1}}</h1>
+    {{else}}
+        <li class="nav-item">
+            <a class="nav-link" href="/signin">Sign In</a>
+        </li>
+        </ul>
+        <h1>{{.H1}}</h1>
+    {{end}}
 </body>
 </html>
